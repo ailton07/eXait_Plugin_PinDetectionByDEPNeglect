@@ -34,6 +34,8 @@ int main(int argc, char** argv) {
 	// Tentativa 2
 	LPVOID virtualAddress;
 	//virtualAddress = VirtualAlloc(NULL, ASSEMBLY_SIZE,MEM_COMMIT,PAGE_EXECUTE_READWRITE);
+	// PAGE_READWRITE: Enables read-only or read/write access to the committed region of pages. If Data Execution Prevention is enabled, attempting to execute code in the committed region results in an access violation.
+	// https://docs.microsoft.com/pt-br/windows/desktop/Memory/memory-protection-constants
 	virtualAddress = VirtualAlloc(NULL, ASSEMBLY_SIZE,MEM_COMMIT,PAGE_READWRITE);
 	if (virtualAddress != NULL)
 	{
